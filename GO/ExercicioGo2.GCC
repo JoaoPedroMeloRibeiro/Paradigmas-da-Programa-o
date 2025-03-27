@@ -1,0 +1,31 @@
+package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+// Função para calcular o fatorial de um número
+func fatorial(n int) int {
+    resultado := 1
+    for i := 2; i <= n; i++ {
+        resultado *= i
+    }
+    return resultado
+}
+
+func main() {
+    // Semente aleatória com base no tempo atual
+    rand.Seed(time.Now().UnixNano())
+
+    // Número aleatório entre 1 e 10
+    numero := rand.Intn(10) + 1
+
+    // Cálculo do fatorial
+    resultado := fatorial(numero)
+
+    // Exibição do resultado
+    fmt.Printf("Número aleatório: %d\n", numero)
+    fmt.Printf("Fatorial de %d é: %d\n", numero, resultado)
+}

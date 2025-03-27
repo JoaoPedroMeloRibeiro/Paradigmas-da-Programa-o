@@ -1,0 +1,45 @@
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func main() {
+    var a, b, c float64
+
+    fmt.Print("Digite o valor de a: ")
+    fmt.Scanln(&a)
+
+    fmt.Print("Digite o valor de b: ")
+    fmt.Scanln(&b)
+
+    fmt.Print("Digite o valor de c: ")
+    fmt.Scanln(&c)
+
+    if a == 0 {
+        fmt.Println("Isso não é uma equação do segundo grau (a não pode ser zero).")
+        return
+    }
+
+    delta := b*b - 4*a*c
+
+    switch {
+    case delta > 0:
+        raizDelta := math.Sqrt(delta)
+        x1 := (-b + raizDelta) / (2 * a)
+        x2 := (-b - raizDelta) / (2 * a)
+        fmt.Printf("As raízes reais da equação são:\n x1 = %.2f\n x2 = %.2f\n", x1, x2)
+
+    case delta == 0:
+        x := -b / (2 * a)
+        fmt.Printf("A equação possui uma única raiz real: x = %.2f\n", x)
+
+    case delta < 0:
+        parteReal := -b / (2 * a)
+        parteImaginaria := math.Sqrt(-delta) / (2 * a)
+        fmt.Println("A equação possui raízes complexas:")
+        fmt.Printf("x1 = %.2f + %.2fi\n", parteReal, parteImaginaria)
+        fmt.Printf("x2 = %.2f - %.2fi\n", parteReal, parteImaginaria)
+    }
+}
