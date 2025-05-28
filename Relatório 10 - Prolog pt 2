@@ -1,0 +1,13 @@
+% 1- Pesquisa de todos os filmes lançados em 2006.
+?- movie(Filme, 2006).
+
+% 2- Pesquisa que retorna todos os filmes lançados em 2001 ou antes.
+?- movie(Filme, Ano), Ano =< 2001.
+
+% 3- Pesquisa que mostra os filmes lançados em 2000 ou em 2006.
+?- movie(Filme, Ano), (Ano = 2000; Ano = 2006).
+% Alternativa para a questão 3:
+% ?- movie(Filme, 2000); movie(Filme, 2006).
+
+% 4- Verifica se o ano que o filme "the_godfather_part_iii" foi lançado é diferente de 1990.
+?- movie(the_godfather_part_iii, Ano), Ano \= 1990.
